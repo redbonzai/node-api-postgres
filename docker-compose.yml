@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - lob-db:/var/lib/postgresql/data
+    restart: always
+
+  lob:
+    build:
+      context: .
+    environment:
+      DB_SCHEMA: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgress
+      DB_HOST: postgres
+    depends_on:
+      - postgres
+    ports:
+      - '4200:4200'
+
+volumes:
+  lob-db:

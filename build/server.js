@@ -8,7 +8,7 @@ const express_1 = __importDefault(require("express"));
 const database_1 = require("./database/database");
 const v1Router_1 = require("./middleware/v1/v1Router");
 const server = (0, express_1.default)();
-const port = parseInt(process.env.SERVER_PORT || '4850');
+const port = parseInt(process.env.SERVER_PORT || '4200');
 server.disable('x-powered-by');
 server.use('/v1', v1Router_1.v1Router);
 database_1.pool.on('connect', () => {
