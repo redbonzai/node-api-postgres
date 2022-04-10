@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.v1Router = void 0;
+const express_1 = require("express");
+const logger_1 = require("./general/logger");
+const apiValidation_1 = require("./general/apiValidation");
+const cors_1 = require("./general/cors");
+const errorHandling_1 = require("./general/errorHandling");
+const addresses_1 = require("../../routing/addresses");
+exports.v1Router = (0, express_1.Router)();
+exports.v1Router.use(logger_1.logger);
+exports.v1Router.use(cors_1.apiCors);
+exports.v1Router.use(apiValidation_1.apiValidation);
+exports.v1Router.use('/addresses', addresses_1.addressRouter);
+exports.v1Router.use(errorHandling_1.errorHandler);
