@@ -1,7 +1,11 @@
 version: "3.7"
 services:
-  postgres:
-    image: postgres
+  db:
+    container_name: postgres
+#    image: postgres
+    build:
+      context: ./docker/database
+      dockerfile: Dockerfile
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -13,15 +17,16 @@ services:
     restart: always
 
   lob:
+    container_name: lob
     build:
-      context: .
+      context: ./
     environment:
       DB_SCHEMA: postgres
       DB_USER: postgres
       DB_PASSWORD: postgress
       DB_HOST: postgres
     depends_on:
-      - postgres
+      - db
     ports:
       - '4200:4200'
 
