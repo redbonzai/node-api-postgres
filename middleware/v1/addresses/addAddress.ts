@@ -28,6 +28,7 @@ export const addAddress: RequestHandler = (req, res, next) => {
                         zip: newAddress.zip,
                     }
                 })
+                client.release()
             })
             .catch(err => {
                 console.log('Error: ', err);
