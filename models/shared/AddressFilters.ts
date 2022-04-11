@@ -1,5 +1,3 @@
-import {pool} from '../../database/database';
-
 export class AddressFilters {
     id: number;
     line1: string;
