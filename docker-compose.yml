@@ -13,11 +13,11 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - lob-db:/var/lib/postgresql/data
+      - postgress-db:/var/lib/postgresql/data
     restart: always
 
-  lob:
-    container_name: lob
+  api:
+    container_name: api
     build:
       context: ./
     environment:
@@ -31,4 +31,4 @@ services:
       - '4200:4200'
 
 volumes:
-  lob-db:
+  postgress-db:

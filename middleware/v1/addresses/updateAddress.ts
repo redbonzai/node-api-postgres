@@ -4,7 +4,8 @@ import {pool} from "../../../database/database";
 
 export const updateAddress: RequestHandler = (
     req,
-    res, next
+    res,
+    next
 ) => {
     const newAddress = {
         line1: req.body.data.line1,
