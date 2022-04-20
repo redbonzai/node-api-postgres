@@ -12,12 +12,9 @@ export const addAddress: RequestHandler = (req, res, next) => {
       zip: req.body.data.zip,
     }
 
-    console.log('New address to be persisted: ', newAddress);
-
     pool.connect().then(client => {
         client.query('INSERT INTO addresses (line1, line2, city, state, zip) VALUES ($1, $2, $3, $4, $5)', [newAddress.line1, newAddress.line2, newAddress.city, newAddress.state, newAddress.zip])
             .then(result => {
-                console.log('Persistence result: ', result.rows)
                 res.status(201).json({
                     status: 'success',
                     data: {

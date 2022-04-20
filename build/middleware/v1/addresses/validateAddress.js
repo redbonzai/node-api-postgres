@@ -25,6 +25,7 @@ const addressValidate = (req, res, next) => {
             address.zip
         ])
             .then(result => {
+            console.log('Row COunt: ', result.rowCount);
             if (result.rowCount > 0) {
                 throw new Error(new messages_1.APIError('Duplicate', 'Address already exists', 400)
                     .toString());
