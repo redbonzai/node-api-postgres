@@ -3,11 +3,11 @@ RUN mkdir -p /opt/app
 #RUN mkdir -p /opt/app
 WORKDIR /opt/app
 #WORKDIR /opt/app
-RUN adduser -S lob-user
+RUN adduser -S api-user
 COPY . /opt/app
 RUN npm install
-RUN chown -R lob-user /opt/app
+RUN chown -R api-user /opt/app
 #RUN chown -R lob-user /opt/app
-USER lob-user
+USER api-user
 EXPOSE 4200
 CMD ["npm", "start"]
