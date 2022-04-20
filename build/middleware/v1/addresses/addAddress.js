@@ -11,9 +11,11 @@ const addAddress = (req, res, next) => {
         state: req.body.data.state,
         zip: req.body.data.zip,
     };
+    console.log('New address to be persisted: ', newAddress);
     database_1.pool.connect().then(client => {
         client.query('INSERT INTO addresses (line1, line2, city, state, zip) VALUES ($1, $2, $3, $4, $5)', [newAddress.line1, newAddress.line2, newAddress.city, newAddress.state, newAddress.zip])
             .then(result => {
+            console.log('Persistence result: ', result.rows);
             res.status(201).json({
                 status: 'success',
                 data: {
@@ -24,6 +26,7 @@ const addAddress = (req, res, next) => {
                     zip: newAddress.zip,
                 }
             });
+            client.release();
         })
             .catch(err => {
             console.log('Error: ', err);

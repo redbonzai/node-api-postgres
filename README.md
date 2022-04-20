@@ -1,4 +1,4 @@
-# LOB Address Search Engine - LIGHT 
+# T4 Address Search Engine - LIGHT 
 
 ## Introduction
 > This is a simple search engine for LOB addresses executed in a Node.js runtime
@@ -29,7 +29,6 @@
 - Post / Patch / PUT Request body validation
 - Full error logging
 - A more comprehensive implementation of search parameters
-- A docker configuration file that defines the runtime environment, and the location of this service on a network for production runtime
 
 ### Features
 This simple search engine can take partial address parameters and return a list of matching addresses if they exist in data store.
