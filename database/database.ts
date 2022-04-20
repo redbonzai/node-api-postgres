@@ -1,5 +1,5 @@
 import {Pool} from "pg";
-const port:number = parseInt(process.env.PORT || '5432');
+const port:number = parseInt(process.env.DB_PORT || '5432');
 
 export const pool = new Pool({
     user: process.env.DB_USER,
